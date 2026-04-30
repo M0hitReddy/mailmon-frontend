@@ -94,18 +94,18 @@ export default function Modal({
       {/* Modal Card */}
       <div 
         ref={modalRef}
-        className="relative w-full max-w-[400px] p-8 bg-[var(--color-surface)] border border-[var(--color-border)] animate-scaleIn shadow-2xl"
-        style={{ borderRadius: 28 }}
+        className="relative w-full max-w-[440px] p-10 bg-[var(--color-surface)] border border-[var(--color-border)] animate-scaleIn shadow-2xl"
+        style={{ borderRadius: 32, boxShadow: "0 24px 64px -12px rgba(0,0,0,0.24)" }}
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
       >
-        <h2 id="modal-title" className="text-[20px] font-semibold text-[var(--color-heading)] mb-2" style={{ letterSpacing: "-0.02em" }}>
+        <h2 id="modal-title" className="text-[24px] font-semibold text-[var(--color-heading)] mb-4" style={{ letterSpacing: "-0.025em" }}>
           {title}
         </h2>
-        <p className="text-[14px] text-[var(--color-muted)] leading-relaxed mb-8">
+        <div className="text-[14px] text-[var(--color-muted)] leading-relaxed mb-8">
           {description}
-        </p>
+        </div>
         
         <div className="flex gap-3">
           <button 
@@ -113,22 +113,24 @@ export default function Modal({
             className="flex-1 h-12 text-[14px] font-medium rounded-2xl bg-[var(--color-raised)] text-[var(--color-heading)] hover:opacity-80 active:scale-[0.98]"
             style={{ transition: SPRING }}
           >
-            Cancel
+            {onConfirm ? 'Cancel' : 'Close'}
           </button>
-          <button 
-            onClick={onConfirm}
-            className={`flex-1 h-12 text-[14px] font-semibold rounded-2xl text-white active:scale-[0.98] ${
-              isDanger ? 'bg-[var(--color-danger)]' : 'bg-[var(--color-accent)]'
-            }`}
-            style={{ 
-              transition: SPRING,
-              boxShadow: isDanger 
-                ? '0 4px 14px -4px rgba(239, 68, 68, 0.4)' 
-                : '0 4px 14px -4px rgba(10, 10, 10, 0.5)'
-            }}
-          >
-            {confirmText}
-          </button>
+          {onConfirm && (
+            <button 
+              onClick={onConfirm}
+              className={`flex-1 h-12 text-[14px] font-semibold rounded-2xl text-white active:scale-[0.98] ${
+                isDanger ? 'bg-[var(--color-danger)]' : 'bg-[var(--color-accent)]'
+              }`}
+              style={{ 
+                transition: SPRING,
+                boxShadow: isDanger 
+                  ? '0 4px 14px -4px rgba(239, 68, 68, 0.4)' 
+                  : '0 4px 14px -4px rgba(10, 10, 10, 0.5)'
+              }}
+            >
+              {confirmText}
+            </button>
+          )}
         </div>
       </div>
     </div>
