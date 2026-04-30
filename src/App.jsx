@@ -139,7 +139,7 @@ export default function App() {
                   Watch your inbox<br />on autopilot.
                 </h1>
                 <p className="text-[14px] mt-3.5 leading-[1.55] text-[var(--color-muted)]" style={{ letterSpacing: "-0.01em" }}>
-                  Mailmon scans Gmail for topics you care about and pings you on Telegram, at the cadence you choose.
+                  Mailmon monitors your Gmail for job emails, interview updates, and recruiter messages — and notifies you on Telegram at your preferred cadence.
                 </p>
                 
                 <div className="mt-7">
